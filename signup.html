@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | VidLoom</title>
+    <link rel="icon" type="image/x-icon" href="https://static.photos/education/200x200/1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .auth-pattern {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark transition-colors duration-300 min-h-screen flex items-center">
+    <div class="fixed inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 -z-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="text-center lg:text-left">
+                <a href="index.html" class="inline-flex items-center mb-8">
+                    <i data-feather="book-open" class="text-primary h-6 w-6 mr-2"></i>
+                    <span class="text-xl font-bold text-slate-800 dark:text-white">VidLoom</span>
+                </a>
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6">
+                    Join <span class="gradient-text">10,000+ Students</span> Today
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-lg">
+                    Create your account to organize your study materials, track progress, and never miss a deadline again.
+                </p>
+                <div class="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="login.html" class="px-6 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+                        Already have an account? <span class="text-primary font-medium">Login</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-8 sm:p-10 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Create Your Account</h2>
+                    <p class="text-slate-600 dark:text-slate-300 mt-2">Start your academic journey with us</p>
+                </div>
+                
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="first-name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">First Name</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i data-feather="user" class="text-slate-400"></i>
+                                </div>
+                                <input type="text" id="first-name" name="first-name" required 
+                                    class="pl-10 w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                                    placeholder="John">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Last Name</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i data-feather="users" class="text-slate-400"></i>
+                                </div>
+                                <input type="text" id="last-name" name="last-name" required 
+                                    class="pl-10 w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                                    placeholder="Doe">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-feather="mail" class="text-slate-400"></i>
+                            </div>
+                            <input type="email" id="email" name="email" required 
+                                class="pl-10 w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                                placeholder="your@email.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-feather="lock" class="text-slate-400"></i>
+                            </div>
+                            <input type="password" id="password" name="password" required 
+                                class="pl-10 w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                                placeholder="••••••••">
+                        </div>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Minimum 8 characters with at least one number</p>
+                    </div>
+                    
+                    <div>
+                        <label for="confirm-password" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Confirm Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-feather="lock" class="text-slate-400"></i>
+                            </div>
+                            <input type="password" id="confirm-password" name="confirm-password" required 
+                                class="pl-10 w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                                placeholder="••••••••">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" required
+                            class="h-4 w-4 text-primary focus:ring-primary border-slate-300 dark:border-slate-700 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-slate-600 dark:text-slate-300">
+                            I agree to the <a href="#" class="text-primary hover:text-indigo-500">Terms of Service</a> and <a href="#" class="text-primary hover:text-indigo-500">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input id="notifications" name="notifications" type="checkbox" 
+                            class="h-4 w-4 text-primary focus:ring-primary border-slate-300 dark:border-slate-700 rounded">
+                        <label for="notifications" class="ml-2 block text-sm text-slate-600 dark:text-slate-300">
+                            I want to receive study reminders and updates
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-indigo-500 transition font-medium flex items-center justify-center">
+                        <i data-feather="user-plus" class="mr-2 w-5 h-5"></i> Create Account
+                    </button>
+                    
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-slate-300 dark:border-slate-700"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white/80 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400">
+                                Or sign up with
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="#" class="px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition flex items-center justify-center">
+                            <i data-feather="github" class="mr-2 text-slate-700 dark:text-slate-300"></i>
+                            <span class="text-slate-700 dark:text-slate-300 text-sm font-medium">GitHub</span>
+                        </a>
+                        <a href="#" class="px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition flex items-center justify-center">
+                            <i data-feather="google" class="mr-2 text-slate-700 dark:text-slate-300"></i>
+                            <span class="text-slate-700 dark:text-slate-300 text-sm font-medium">Google</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.createElement('button');
+        themeToggle.id = 'theme-toggle';
+        themeToggle.className = 'fixed top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition';
+        themeToggle.innerHTML = `
+            <i data-feather="moon" class="hidden dark:block text-slate-300"></i>
+            <i data-feather="sun" class="block dark:hidden text-slate-600"></i>
+        `;
+        document.body.appendChild(themeToggle);
+
+        themeToggle.addEventListener('click', () => {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

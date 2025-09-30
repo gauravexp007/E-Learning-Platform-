@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidLoom - Learning Hub</title>
+    <link rel="icon" type="image/x-icon" href="https://static.photos/education/200x200/1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark transition-colors duration-300">
+    <div id="vanta-bg" class="fixed inset-0 -z-10"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <i data-feather="book-open" class="text-primary h-6 w-6 mr-2"></i>
+                    <span class="text-xl font-bold text-slate-800 dark:text-white">VidLoom</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Home</a>
+                    <a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Features</a>
+                    <a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Subjects</a>
+                    <a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">About</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        <i data-feather="moon" class="hidden dark:block text-slate-300"></i>
+                        <i data-feather="sun" class="block dark:hidden text-slate-600"></i>
+                    </button>
+                    <a href="login.html" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-indigo-500 transition">Login</a>
+                    <a href="signup.html" class="px-4 py-2 border border-primary text-primary dark:text-white rounded-lg hover:bg-primary/10 transition">Sign Up</a>
+                </div>
+                <button class="md:hidden p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="space-y-8">
+                <h1 class="text-5xl md:text-6xl font-bold text-slate-800 dark:text-white leading-tight">
+                    Your <span class="gradient-text">Study Symphony</span> in One Place
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-300">
+                    VidLoom organizes all your academic videos, tracks progress, and keeps you on schedule with smart reminders. 
+                    The perfect companion for college success.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="signup.html" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-indigo-500 transition flex items-center">
+                        Get Started <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="px-6 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition flex items-center">
+                        <i data-feather="play-circle" class="mr-2 w-4 h-4"></i> Watch Demo
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4 pt-4">
+                    <div class="flex -space-x-2">
+                        <img src="https://static.photos/people/200x200/1" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800" alt="Student">
+                        <img src="https://static.photos/people/200x200/2" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800" alt="Student">
+                        <img src="https://static.photos/people/200x200/3" class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800" alt="Student">
+                    </div>
+                    <div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Trusted by 10,000+ students</p>
+                        <div class="flex">
+                            <i data-feather="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                            <i data-feather="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                            <i data-feather="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                            <i data-feather="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                            <i data-feather="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700 transform rotate-1">
+                    <div class="bg-slate-100 dark:bg-slate-700 h-8 flex items-center px-3 space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="p-4">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <div class="w-full h-64 bg-gradient-to-br from-primary to-purple-500 rounded-lg flex items-center justify-center text-white">
+                                <i data-feather="play" class="w-16 h-16"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-white">Calculus: Differentiation Basics</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Mathematics • Semester 2</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 ml-2">65%</span>
+                            </div>
+                            <button class="mt-4 w-full py-2 bg-primary text-white rounded-lg hover:bg-indigo-500 transition flex items-center justify-center">
+                                <i data-feather="check-circle" class="mr-2 w-4 h-4"></i> Mark Complete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-purple-500/10 rounded-full filter blur-2xl -z-10"></div>
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary/10 rounded-full filter blur-2xl -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Everything You Need to <span class="gradient-text">Ace Your Courses</span></h2>
+            <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                VidLoom combines organization, tracking, and reminders into one seamless experience
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
+                    <i data-feather="layers" class="text-primary w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">Organized Playlists</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                    All your subject videos neatly categorized by semester, topic, and difficulty level.
+                </p>
+            </div>
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-lg bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center mb-4">
+                    <i data-feather="check-circle" class="text-purple-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">Progress Tracking</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                    Mark videos as complete and track your learning journey with visual progress indicators.
+                </p>
+            </div>
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-lg bg-amber-500/10 dark:bg-amber-500/20 flex items-center justify-center mb-4">
+                    <i data-feather="bell" class="text-amber-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">Smart Reminders</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                    Set study reminders and get notifications via email or OTP to stay on track.
+                </p>
+            </div>
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center mb-4">
+                    <i data-feather="monitor" class="text-emerald-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">Unified Dashboard</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                    See all your subjects, progress, and upcoming reminders in one intuitive dashboard.
+                </p>
+            </div>
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-lg bg-rose-500/10 dark:bg-rose-500/20 flex items-center justify-center mb-4">
+                    <i data-feather="moon" class="text-rose-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">Dark Mode</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                    Study comfortably at night with our easy-on-the-eyes dark mode.
+                </p>
+            </div>
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 flex items-center justify-center mb-4">
+                    <i data-feather="smartphone" class="text-sky-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">Mobile Friendly</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-300">
+                    Access your study materials anytime, anywhere with our fully responsive design.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-gradient-to-r from-primary to-purple-500 rounded-3xl p-8 md:p-12 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Study Habits?</h2>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+                Join thousands of students who are acing their courses with VidLoom's organized approach to learning.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="signup.html" class="px-8 py-3 bg-white text-primary rounded-lg hover:bg-slate-100 transition font-medium">
+                    Get Started for Free
+                </a>
+                <a href="#" class="px-8 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition font-medium">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i data-feather="book-open" class="text-primary h-6 w-6 mr-2"></i>
+                        <span class="text-xl font-bold text-slate-800 dark:text-white">VidLoom</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300">Your centralized study hub for academic success.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-4">Features</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Video Playlists</a></li>
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Progress Tracking</a></li>
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Study Reminders</a></li>
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Dark Mode</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">About Us</a></li>
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Careers</a></li>
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Blog</a></li>
+                        <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 dark:border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 dark:text-slate-400 text-sm">© 2023 VidLoom. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 text-sm transition">Terms of Service</a>
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 text-sm transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Vanta.js background
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: '#6366f1',
+            backgroundColor: '#f8fafc',
+            size: 0.8,
+            zoom: 0.8
+        });
+
+        // GSAP animations
+        gsap.from("nav", { opacity: 0, y: -20, duration: 1, ease: "power3.out" });
+        gsap.from(".hero-pattern", { opacity: 0, scale: 0.8, duration: 1, ease: "power3.out" });
+        gsap.from("section", { opacity: 0, y: 20, duration: 1, ease: "power3.out", stagger: 0.2 });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
